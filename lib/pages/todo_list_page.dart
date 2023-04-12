@@ -19,6 +19,8 @@ class TodoListPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'E-mail',
                 ),
+                onChanged: onChanged, // atualiza a cada mudança
+                onSubmitted: onSubmitted, // atualiza apenas quando é enviado com enter ou confirmação do teclado
               ),
               ElevatedButton(onPressed: login, child: Text('Entrar'))
             ],
@@ -30,6 +32,14 @@ class TodoListPage extends StatelessWidget {
 
   void login() {
     String text = emailController.text;
+    print(text);
+  }
+
+  void onChanged(String text) {
+    print(text);
+  }
+
+  void onSubmitted(String text) {
     print(text);
   }
 }
