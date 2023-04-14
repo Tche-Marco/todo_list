@@ -103,12 +103,4 @@ class _TodoListPageState extends State<TodoListPage> {
       ),
     );
   }
-
-  void onChanged(String text) {
-    print(text);
-  }
-
-  void onSubmitted(String text) {
-    print(text);
-  }
 }
