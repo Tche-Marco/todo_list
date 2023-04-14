@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/todo_list_item.dart';
+
 class TodoListPage extends StatefulWidget {
   TodoListPage({Key? key}) : super(key: key);
 
@@ -56,15 +58,10 @@ class _TodoListPageState extends State<TodoListPage> {
               SizedBox(height: 16),
               Flexible(
                 child: ListView(
+                  padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   children: [
-                    for (String todo in todos)
-                      ListTile(
-                        title: Text(todo),
-                        onTap: () {
-                          print('tarefa: $todo');
-                        },
-                      ),
+                    for (String todo in todos) TodoListItem(),
                   ],
                 ),
               ),
@@ -77,7 +74,11 @@ class _TodoListPageState extends State<TodoListPage> {
                   )),
                   SizedBox(width: 8),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        todos.clear();
+                      });
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xff00d7f3),
                       padding: EdgeInsets.all(14),
